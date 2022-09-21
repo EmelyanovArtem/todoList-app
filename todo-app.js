@@ -64,7 +64,7 @@
         item.textContent = obj.name;
 
         buttonGroup.classList.add('btn-group', 'btn-group-sm');
-        doneButton.classList.add('btn', 'btn-success');
+        doneButton.classList.add('btn', 'btn-success', 'mr-3');
         doneButton.textContent = 'Готово';
         deleteButton.classList.add('btn', 'btn-danger');
         deleteButton.textContent = 'Удалить';
@@ -82,19 +82,19 @@
         })
 
         deleteButton.addEventListener('click', function() {
-          if (confirm('Вы уверены?')) {
-              item.remove();
+          // if (confirm('Вы уверены?')) {
+          item.remove();
 
-              const currentName = item.firstChild.textContent;
+          const currentName = item.firstChild.textContent;
 
-              for (let i = 0; i < listArray.length; i++) {
-                if(listArray[i].name === currentName && obj.id === listArray[i].id) {
-                  listArray.splice(i, 1);
-                }
-              }
-
-              saveList(listArray, listName);
+          for (let i = 0; i < listArray.length; i++) {
+            if(listArray[i].name === currentName && obj.id === listArray[i].id) {
+              listArray.splice(i, 1);
+            }
           }
+
+          saveList(listArray, listName);
+          // }
         })
 
         // Вкладываем кнопки в отдельный элемент, чтобы они объединились в один блок
